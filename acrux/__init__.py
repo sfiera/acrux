@@ -19,6 +19,8 @@ assert str is not bytes  # Python 3 required
 
 import collections
 import enum
+import html
+import itertools
 import re
 
 FILE_KEYS = {"grid", "subs", "clues", "title", "author", "copyright"}
@@ -56,11 +58,12 @@ def load(pod):
         clues[c.answer, answer_counts[c.answer]] = c
         answer_counts[c.answer] += 1
 
+    variables = _map_variables(answers)
     for answer, clue in pod.get("clues", {}).items():
         if not isinstance(clue, list):
             clue = [clue]
         for i, text in enumerate(clue):
-            clues[answer, i].text = text
+            clues[answer, i].text = _replace_variables(text, variables)
 
     return Crossword(
         grid=grid,
@@ -122,14 +125,93 @@ def _find_answers(grid):
 
             n += 1
             if has_across:
-                answers.append(Clue(x, y, n, Dir.ACROSS, across_word(grid, x, y)))
+                answers.append(Clue(x, y, n, Dir.ACROSS, _across_word(grid, x, y)))
             if has_down:
-                answers.append(Clue(x, y, n, Dir.DOWN, down_word(grid, x, y)))
+                answers.append(Clue(x, y, n, Dir.DOWN, _down_word(grid, x, y)))
 
     return answers
 
 
-def across_word(grid, x, y):
+def _map_variables(answers):
+    variables = {}
+    for answer, clues in itertools.groupby(
+            sorted(answers, key=lambda c: c.answer), key=lambda c: c.answer):
+        clues = list(clues)
+        if len(clues) == 1:
+            variables[answer] = clues[0]
+        else:
+            for i, clue in enumerate(clues):
+                variables["%s[%d]" % (answer, i)] = clue
+    return variables
+
+
+def _replace_variables(text, variables):
+    names = sorted(variables, key=lambda k: -len(k))
+    pattern = re.compile(
+        r"""
+        ( \$
+          ( [A-Za-z0-9._/+-]+ (?:\[[0-9]+\])?
+          | \{ (.*?) \}
+          | \$
+          |
+          )
+        | \*\b (.*?) \b\*
+        | ([^*$]+)
+        )
+        """, re.X)
+    return pattern.sub(lambda m: _replacement_for(m, variables), text)
+
+
+def _replacement_for(m, variables):
+    if m.group(2) is not None:
+        if m.group(2) == "":
+            raise ValueError("Nothing meaningful after $")
+        elif m.group(2) == "$":
+            return "$"
+        elif m.group(3) is not None:
+            if "&" in m.group(3):
+                conjunction = "and"
+                parts = [variables[x.strip()] for x in m.group(3).split("&")]
+            elif "|" in m.group(3):
+                conjunction = "or"
+                parts = [variables[x.strip()] for x in m.group(3).split("&")]
+            else:
+                conjunction = None
+                parts = variables[m.group(3).strip()]
+            return _name_clues(parts, conjunction=conjunction)
+        else:
+            clue = variables[m.group(2)]
+            return _name_clues(variables[m.group(2)])
+    elif m.group(4) is not None:
+        return "<i>%s</i>" % _replace_variables(m.group(4), variables)
+    else:
+        return html.escape(m.group(5))
+
+
+def _name_clues(clues, conjunction=None):
+    if conjunction == None:
+        clue = clues
+        if clue.direction == Dir.ACROSS:
+            return "%d-Across" % clue.number
+        else:
+            return "%d-Down" % clue.number
+    elif len(clues) == 2:
+        a, b = clues
+        if a.direction == b.direction:
+            return "%d- %s %s" % (a.number, conjunction, _name_clues(b))
+        else:
+            return "%s %s %s" % (_name_clues(a), conjunction, _name_clues(b))
+    last = clues[-1]
+    clues = clues[:-1]
+    if all(clue.direction == last.direction for clue in clues):
+        return "%s, %s %s" % (", ".join("%d-" % c.number
+                                        for c in clues), conjunction, _name_clues(last))
+    else:
+        return "%s, %s %s" % (", ".join(_name_clues(c)
+                                        for c in clues), conjunction, _name_clues(last))
+
+
+def _across_word(grid, x, y):
     line = grid[y]
     word = ""
     for x in range(x, len(line)):
@@ -139,7 +221,7 @@ def across_word(grid, x, y):
     return word
 
 
-def down_word(grid, x, y):
+def _down_word(grid, x, y):
     word = ""
     for y in range(y, len(grid)):
         if grid[y][x].text is None:
