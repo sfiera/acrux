@@ -146,55 +146,59 @@ def _map_variables(answers):
 
 
 def _replace_variables(text, variables):
-    names = sorted(variables, key=lambda k: -len(k))
     pattern = re.compile(
         r"""
-        ( \$
+          \$
           ( [A-Za-z0-9._/+-]+ (?:\[[0-9]+\])?
           | \{ (.*?) \}
           | \$
-          |
           )
-        | \*\b (.*?) \b\*
-        | ([^*$]+)
-        )
+        | \*
+          ( [^\s\\]
+            (?: (?:[^\\]|\\.)*?
+                [^\s\\]
+            )?
+          )
+          \*
+        | \\(.)
+        | (.[^*$\\]*)
         """, re.X)
     return pattern.sub(lambda m: _replacement_for(m, variables), text)
 
 
 def _replacement_for(m, variables):
-    if m.group(2) is not None:
-        if m.group(2) == "":
-            raise ValueError("Nothing meaningful after $")
-        elif m.group(2) == "$":
+    if m.group(1) is not None:
+        if m.group(1) == "$":
             return "$"
-        elif m.group(3) is not None:
-            if "&" in m.group(3):
+        elif m.group(2) is not None:
+            if "&" in m.group(2):
                 conjunction = "and"
-                parts = [variables[x.strip()] for x in m.group(3).split("&")]
-            elif "|" in m.group(3):
+                parts = [variables[x.strip()] for x in m.group(2).split("&")]
+            elif "|" in m.group(2):
                 conjunction = "or"
-                parts = [variables[x.strip()] for x in m.group(3).split("&")]
+                parts = [variables[x.strip()] for x in m.group(2).split("|")]
             else:
                 conjunction = None
-                parts = variables[m.group(3).strip()]
+                parts = variables[m.group(2).strip()]
             return _name_clues(parts, conjunction=conjunction)
         else:
-            clue = variables[m.group(2)]
-            return _name_clues(variables[m.group(2)])
+            clue = variables[m.group(1)]
+            return _name_clues(clue)
+    elif m.group(3) is not None:
+        return "<i>%s</i>" % _replace_variables(m.group(3), variables)
     elif m.group(4) is not None:
-        return "<i>%s</i>" % _replace_variables(m.group(4), variables)
+        return html.escape(m.group(4))
     else:
         return html.escape(m.group(5))
 
 
 def _name_clues(clues, conjunction=None):
-    if conjunction == None:
+    if conjunction is None:
         clue = clues
         if clue.direction == Dir.ACROSS:
-            return "%d-Across" % clue.number
+            return "%d-across" % clue.number
         else:
-            return "%d-Down" % clue.number
+            return "%d-down" % clue.number
     elif len(clues) == 2:
         a, b = clues
         if a.direction == b.direction:
