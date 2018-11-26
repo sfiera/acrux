@@ -19,6 +19,7 @@ assert str is not bytes  # Python 3 required
 
 import acrux
 import argparse
+import collections
 import json
 import procyon
 import sys
@@ -44,7 +45,7 @@ def ax2ipuz(pod):
         ipuz["author"] = ax.author
     if ax.copyright is not None:
         ipuz["copyright"] = ax.copyright
-    ipuz["dimensions"] = {"width": ax.width, "height": ax.height}
+    ipuz["dimensions"] = collections.OrderedDict([("width", ax.width), ("height", ax.height)])
 
     puzzle = ipuz["puzzle"] = []
     solution = ipuz["solution"] = []
@@ -57,7 +58,11 @@ def ax2ipuz(pod):
                 puzzle[-1].append("#")
                 solution[-1].append("#")
             elif "circle" in cell.style:
-                puzzle[-1].append({"cell": cell.number or 0, "style": {"shapebg": "circle"}})
+                puzzle[-1].append(
+                    collections.OrderedDict([
+                        ("cell", cell.number or 0),
+                        ("style", {"shapebg": "circle"}),
+                    ]))
                 solution[-1].append(cell.text)
             else:
                 puzzle[-1].append(cell.number or 0)
@@ -66,7 +71,7 @@ def ax2ipuz(pod):
     ipuz["clues"] = {}
     across = ipuz["clues"]["Across"] = []
     down = ipuz["clues"]["Down"] = []
-    for c in ax.clues.values():
+    for c in sorted(ax.clues.values(), key=lambda c: c.number):
         if c.direction == acrux.Dir.ACROSS:
             clues = across
         else:
