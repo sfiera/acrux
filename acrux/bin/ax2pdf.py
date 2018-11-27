@@ -70,7 +70,7 @@ def ax2pdf(pod):
 
     across_cells = []
     down_cells = []
-    for clue in ax.clues.values():
+    for clue in sorted(ax.clues.values(), key=lambda clue: clue.number):
         if clue.direction == acrux.Dir.ACROSS:
             cells = across_cells
         else:
