@@ -18,6 +18,7 @@
 assert str is not bytes  # Python 3 required
 
 import acrux
+import acrux.text
 import argparse
 import io
 import json
@@ -77,7 +78,7 @@ def ax2pdf(pod):
             cells = down_cells
         cells.append([
             platypus.Paragraph("%d." % clue.number, clue_number_style),
-            platypus.Paragraph(clue.text, body_style),
+            platypus.Paragraph(acrux.text.to_latin1(clue.text), body_style),
         ])
 
     clue_style = platypus.TableStyle([
