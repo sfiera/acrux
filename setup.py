@@ -39,5 +39,6 @@ setup(
         "console_scripts": [
             "ax2ipuz=acrux.bin.ax2ipuz:main",
             "ax2pdf=acrux.bin.ax2pdf:main",
+            "ax2puz=acrux.bin.ax2puz:main",
         ],
     })
