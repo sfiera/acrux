@@ -114,10 +114,18 @@ def ax2pdf(pod):
             ]))
     ]
 
-    doc.build(flows)
+    doc.build(flows, onFirstPage=on_first_page(ax))
     data = pdf.getvalue()
     pdf.close()
     return data
+
+
+def on_first_page(ax):
+    def fn(canvas, doc):
+        canvas.setTitle(ax.title)
+        canvas.setAuthor(ax.author)
+
+    return fn
 
 
 class CrosswordGrid(flowables.Flowable):
