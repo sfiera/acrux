@@ -80,9 +80,9 @@ _MODIFIER_KEYS = {
 
 
 def _replace_modifier_key(m):
-    s = _MODIFIER_KEYS[m.group(0)]
-    if m.group(2) is not None:
-        s += "-"
+    s = _MODIFIER_KEYS[m.group(2)]
+    if m.group(3) is not None:
+        s = "%s-%s" % (s, m.group(3))
     if m.group(1) is not None:
         s = s.title()
     return s
@@ -105,11 +105,11 @@ _FRACTIONS = {
 
 
 def _replace_fraction(m):
-    s = _FRACTIONS[m.group(0)]
+    s = _FRACTIONS[m.group(2)]
     if m.group(1) is not None:
-        s = " %s" % s
-    if m.group(2) is not None:
-        s = "%s " % s
+        s = "%s %s" % (m.group(1), s)
+    if m.group(3) is not None:
+        s = "%s %s" % (s, m.group(3))
     return s
 
 
@@ -137,17 +137,21 @@ def _replace_accented(m):
 _SUBS = [
     (re.compile("–(\d)"), _replace_negative),
     (re.compile("[“”‘’–—…№←⇐⇒→Œœ]"), _replace_simple),
-    (re.compile("[\U0001F3FB-\U0001F3FF]"), ""),  # emoji skin color
+    (re.compile("[\U0001F3FB-\U0001F3FF]"), lambda m: ""),  # emoji skin color
     (re.compile("[\u270a\U0001F300-\U0001F6FF\U0001F900-\U0001F9FF]"), _replace_emoji),
-    (re.compile("(^)?[⌘⇧⌥⌃]((?=\S))?"), _replace_modifier_key),
-    (re.compile("((?<=[^⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞ \t]))?[⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]((?=\S))?"), _replace_fraction),
+    (re.compile("(^)?([⌘⇧⌥⌃])(\S)?"), _replace_modifier_key),
+    (re.compile("(\S)?([⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])(\S)?"), _replace_fraction),
     (re.compile("[\u0100-\u02af]|.[\u0300-\u036f]+"), _replace_accented),
-    (re.compile("π"), "pi"),
+    (re.compile("π"), lambda m: "pi"),
 ]
 
 
 def to_latin1(s):
     for r, repl in _SUBS:
-        s = r.sub(repl, s)
+        while True:
+            m = r.search(s)
+            if not m:
+                break
+            s = s[:m.start()] + repl(m) + s[m.end():]
     s.encode("latin1")  # Assert encodable
     return s
