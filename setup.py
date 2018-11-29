@@ -15,9 +15,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-assert str is not bytes  # Python 3 required
-
 from setuptools import setup, find_packages
+
+assert str is not bytes  # Python3 required
 
 with open("README.md") as f:
     readme = f.read()
@@ -34,6 +34,7 @@ setup(
     author_email="sfiera@twotaled.com",
     url="https://github.com/sfiera/acrux",
     license=license,
+    python_requires='>=3.0',
     packages=find_packages(exclude=("test", )),
     entry_points={
         "console_scripts": [

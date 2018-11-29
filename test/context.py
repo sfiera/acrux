@@ -15,8 +15,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-assert str is not bytes  # Python 3 required
-
 import sys
 import os
 
