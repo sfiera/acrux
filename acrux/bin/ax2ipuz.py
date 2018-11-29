@@ -127,7 +127,6 @@ def aligned(grid):
     grid = [[json.dumps(cell, ensure_ascii=False) for cell in row] for row in grid]
 
     result = []
-    width = max(len(row) for row in grid)
     max_width = max(max(len(cell) for cell in row) for row in grid)
     for row in grid:
         result.append([])
@@ -150,9 +149,6 @@ def main():
 
     if opts.output is None:
         opts.output = sys.stdout
-        output_name = "-"
-    else:
-        output_name = opts.output.name
 
     try:
         pod = procyon.load(opts.input)

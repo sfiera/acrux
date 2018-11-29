@@ -96,9 +96,6 @@ def main():
 
     if opts.output is None:
         opts.output = sys.stdout
-        output_name = "-"
-    else:
-        output_name = opts.output.name
 
     try:
         pod = procyon.load(opts.input)

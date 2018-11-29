@@ -39,10 +39,8 @@ def load(pod):
     keys = frozenset(pod)
     assert keys <= FILE_KEYS
 
-    lines = pod["grid"].splitlines()
     grid = _load_grid(pod["grid"], pod.get("subs", {}))
 
-    height = len(grid)
     width = max(len(line) for line in grid)
     for line in grid:
         while len(line) < width:

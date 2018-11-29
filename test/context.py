@@ -21,4 +21,4 @@ import os
 ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, ROOT)
 
-import acrux
+import acrux  # noqa: E402,F401

@@ -121,7 +121,7 @@ def _replace_accented(m):
         seg = unicodedata.normalize("NFC", s[start:end])
         try:
             seg = seg.encode("latin1")
-        except UnicodeEncodeError as e:
+        except UnicodeEncodeError:
             if end > (start + 1):
                 result.append(unicodedata.normalize("NFC", s[start:end - 1]))
             start = end
