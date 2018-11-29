@@ -47,6 +47,22 @@ def ax2ipuz(pod):
         c = acrux.text.to_latin1(c)
         p.clues.append(c)
 
+    values = [cell_value(cell) for cell in all_cells]
+    rebuses = sorted(set(v for v in values if len(v) > 1))
+    if rebuses:
+        index_to_rebus = dict(enumerate(rebuses))
+        rebus_to_index = {v: k for (k, v) in index_to_rebus.items()}
+        p.rebus().table = [1 + rebus_to_index.get(v, -1) for v in values]
+        p.rebus().solutions = index_to_rebus
+
+    if any("circle" in cell.style for cell in all_cells):
+        p.markup().markup = []
+        for cell in all_cells:
+            if "circle" in cell.style:
+                p.markup().markup.append(puz.GridMarkup.Circled)
+            else:
+                p.markup().markup.append(0)
+
     return p
 
 
@@ -56,12 +72,16 @@ def fill_char(cell):
     return "-"
 
 
-def solution_char(cell):
+def cell_value(cell):
     if cell.block:
         return "."
     elif cell.options:
-        return cell.options[0][0]
-    return cell.text[0]
+        return cell.options[0]
+    return cell.text
+
+
+def solution_char(cell):
+    return cell_value(cell)[0]
 
 
 def main():
