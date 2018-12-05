@@ -46,8 +46,12 @@ def _replace_negative(m):
 _SIMPLE = {
     "“": '"',
     "”": '"',
+    "ʺ": '"',
     "‘": "'",
     "’": "'",
+    "ʹ": "'",
+    "ʻ": "'",
+    "ʼ": "'",
     "–": "--",
     "—": "---",
     "…": "...",
@@ -133,14 +137,14 @@ def _replace_accented(m):
 
 
 _SUBS = [
-    (re.compile("–(\d)"), _replace_negative),
-    (re.compile("[“”‘’–—…№←⇐⇒→Œœ]"), _replace_simple),
-    (re.compile("[\U0001F3FB-\U0001F3FF]"), lambda m: ""),  # emoji skin color
-    (re.compile("[\u270a\U0001F300-\U0001F6FF\U0001F900-\U0001F9FF]"), _replace_emoji),
-    (re.compile("(^)?([⌘⇧⌥⌃])(\S)?"), _replace_modifier_key),
-    (re.compile("(\S)?([⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])(\S)?"), _replace_fraction),
-    (re.compile("[\u0100-\u02af]|.[\u0300-\u036f]+"), _replace_accented),
-    (re.compile("π"), lambda m: "pi"),
+    (re.compile(r"–(\d)"), _replace_negative),
+    (re.compile(r"[“”ʺ‘’ʹʻʼ–—…№←⇐⇒→Œœ]"), _replace_simple),
+    (re.compile(r"[\U0001F3FB-\U0001F3FF]"), lambda m: ""),  # emoji skin color
+    (re.compile(r"[\u270a\U0001F300-\U0001F6FF\U0001F900-\U0001F9FF]"), _replace_emoji),
+    (re.compile(r"(^)?([⌘⇧⌥⌃])(\S)?"), _replace_modifier_key),
+    (re.compile(r"(\S)?([⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])(\S)?"), _replace_fraction),
+    (re.compile(r"[\u0100-\u02af]|.[\u0300-\u036f]+"), _replace_accented),
+    (re.compile(r"π"), lambda m: "pi"),
 ]
 
 
