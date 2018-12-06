@@ -15,10 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from acrux.text import strip_html
+from .context import acrux
 
 
 def test_strip_html():
-    assert strip_html("No HTML") == "No HTML"
-    assert strip_html("<i>Italics</i>") == "Italics"
-    assert strip_html("&lt;br/&gt;") == "<br/>"
+    assert acrux.text.strip_html("No HTML") == "No HTML"
+    assert acrux.text.strip_html("<i>Italics</i>") == "Italics"
+    assert acrux.text.strip_html("&lt;br/&gt;") == "<br/>"

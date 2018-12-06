@@ -82,11 +82,12 @@ def solution_char(cell):
     return cell_value(cell)[0]
 
 
-def main():
-    parser = argparse.ArgumentParser()
+def main(args=None):
+    args = args or sys.argv[:]
+    parser = argparse.ArgumentParser(prog=args.pop(0))
     parser.add_argument("input", metavar="IN.ax", nargs="?", type=argparse.FileType("r"))
     parser.add_argument("output", metavar="OUT.ipuz", nargs="?", type=argparse.FileType("wb"))
-    opts = parser.parse_args()
+    opts = parser.parse_args(args)
 
     if opts.input is None:
         opts.input = sys.stdin

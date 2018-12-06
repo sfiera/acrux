@@ -22,3 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, ROOT)
 
 import acrux  # noqa: E402,F401
+import acrux.text  # noqa: E402,F401
+import acrux.bin.ax2ipuz  # noqa: E402,F401
+import acrux.bin.ax2pdf  # noqa: E402,F401
+import acrux.bin.ax2puz  # noqa: E402,F401

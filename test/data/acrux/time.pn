@@ -1,0 +1,29 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	eSSAy
+	|	#RED#
+	|	##m##
+	|	#MIA#
+	|	nUTSo
+
+subs:
+	m:  {text: "M", style: "circle"}
+	o:  {text: "O", style: "circle"}
+	n:  {text: "N", style: "circle"}
+	e:  {text: "E", style: "circle"}
+	y:  {text: "Y", style: "circle"}
+
+clues:
+	ESSAY:  "Column"
+	RED:    "Toreador’s color"
+	MIA:    "AWOL"
+	NUTSO:  "Crazy person"
+
+	SR:     "Jr.’s dad"
+	SEMIT:  "“The hourglass has run out”, literally"
+	AD:     "Google product"
+	MU:     "Micro"
+	AS:     "Good __ gold"

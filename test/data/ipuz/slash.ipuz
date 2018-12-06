@@ -1,0 +1,37 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ [{"cell": 1, "style": {"shapebg": "circle"}}, 2,                                           3,                                           4,                                           "#"                                        ]
+  , [5,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 0,                                           0,                                           6                                          ]
+  , [7,                                           0,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 0,                                           0                                          ]
+  , [8,                                           0,                                           0,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 0                                          ]
+  , ["#",                                         9,                                           0,                                           0,                                           {"cell": 0, "style": {"shapebg": "circle"}}]
+  ]
+, "solution":
+  [ ["H", "A", "W", "K", "#"]
+  , ["A", "S", "H", "E", "S"]
+  , ["S", "C", "A", "L", "A"]
+  , ["H", "O", "L", "L", "Y"]
+  , ["#", "T", "E", "S", "S"]
+  ]
+, "clues":
+  { "Across":
+    [ [1, "Accipitrine one"]
+    , [5, "<i>Angela’s _____</i>"]
+    , [7, "Java relative"]
+    , [8, "Christmas shrub"]
+    , [9, "One of the d’Urbervilles"]
+    ]
+  , "Down":
+    [ [1, "Shifted character"]
+    , [2, "Fancy necktie"]
+    , [3, "Big one"]
+    , [4, "<i>Book of _____</i>"]
+    , [6, "Claims"]
+    ]
+  }
+}

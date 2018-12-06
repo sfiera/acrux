@@ -1,0 +1,31 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	SAnYO
+	|	EM#AB
+	|	w###e
+	|	EL#BY
+	|	DOsES
+
+subs:
+	"n":  {text: "N", style: "circle"}
+	"s":  {text: "S", style: "circle"}
+	"e":  {text: "E", style: "circle"}
+	"w":  {text: "W", style: "circle"}
+
+clues:
+	SANYO:  "Tokaido connection"
+	EM:     "Unit of width"
+	AB:     "One of a six-pack?"
+	EL:     "Chicago transport option"
+	BY:     "Attributed to"
+	DOSES:  "They might be in CCs"
+
+	SEWED:  "Put in stitches?"
+	AM:     "“I think, therefore I __”"
+	YA:     "“See __!”"
+	OBEYS:  "Hews to"
+	LO:     "“Behold!”"
+	BE:     "Hamlet dichotomy"

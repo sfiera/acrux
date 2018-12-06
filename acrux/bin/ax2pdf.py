@@ -284,11 +284,12 @@ def is_empty(ax, x, y):
     return ax.grid[y][x].empty
 
 
-def main():
-    parser = argparse.ArgumentParser()
+def main(args=None):
+    args = args or sys.argv[:]
+    parser = argparse.ArgumentParser(prog=args.pop(0))
     parser.add_argument("input", metavar="IN.ax", nargs="?", type=argparse.FileType("r"))
     parser.add_argument("output", metavar="OUT.pdf", nargs="?", type=argparse.FileType("wb"))
-    opts = parser.parse_args()
+    opts = parser.parse_args(args)
 
     if opts.input is None:
         opts.input = sys.stdin

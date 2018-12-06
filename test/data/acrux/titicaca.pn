@@ -1,0 +1,39 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	SONO######
+	|	NOTATION##
+	|	RARITIES##
+	|	##ESCAPADE
+	|	####CARTED
+
+subs:
+	SO:    "SO"
+	NO:    "NO"
+	TA:    "TA"
+	TI:    "TI"
+	ON:    "ON"
+	RA:    "RA"
+	RI:    "RI"
+	ES:    "ES"
+	CA:    "CA"
+	PA:    "PA"
+	DE:    "DE"
+	RT:    "RT"
+	ED:    "ED"
+	"##":  {block: true}
+
+clues:
+	SONO:      "“I’ll take that as a negative”"
+	NOTATION:  "Marking system"
+	RARITIES:  "B-side collection"
+	ESCAPADE:  "…"
+	CARTED:    "Hauled (away)"
+
+	SONORA:    "State south of the border"
+	NOTARIES:  "Verifiers"
+	TITICACA:  "Andean lake"
+	ONESPART:  "What to play"
+	DEED:      "Document of ownership"

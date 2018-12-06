@@ -1,0 +1,19 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	GODOT
+	|	U#R#A
+	|	THICK
+	|	S#P#E
+	|	YOSHI
+
+clues:
+	GODOT:  "One to wait for"
+	THICK:  "Awash (with)"
+	YOSHI:  "Mario dino"
+
+	GUTSY:  "Brave"
+	DRIPS:  "Tap problems"
+	TAKEI:  "Sulu portrayer"

@@ -1,0 +1,27 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	#AGE#
+	|	AcHeD
+	|	STORY
+	|	HASIN
+	|	ESTEE
+
+subs:
+	c:  {text: "C", style: "circle"}
+	e:  {text: "E", style: "circle"}
+
+clues:
+	AGE:    "Year count"
+	ACHED:  "Was sore"
+	STORY:  "See $GHOST"
+	HASIN:  "_____ mind"
+	ESTEE:  "First name in skin care"
+
+	ACTAS:  "Portray"
+	GHOST:  "With $STORY, spooky tale"
+	EERIE:  "Spooky"
+	ASHE:   "Tennis great"
+	DYNE:   "Unit of force"

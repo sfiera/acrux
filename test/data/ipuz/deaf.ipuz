@@ -1,0 +1,37 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ [1,   2,   3,   4,   "#"]
+  , [5,   0,   0,   0,   6  ]
+  , [7,   0,   0,   0,   0  ]
+  , [8,   0,   0,   0,   0  ]
+  , ["#", 9,   0,   0,   "#"]
+  ]
+, "solution":
+  [ ["D", "E", "A", "F", "#"]
+  , ["U", "N", "G", "A", "R"]
+  , ["M", "O", "A", "N", "A"]
+  , ["B", "L", "I", "N", "D"]
+  , ["#", "A", "N", "Y", "#"]
+  ]
+, "clues":
+  { "Across":
+    [ [1, "With 1-down and 8-across, like The Who’s pinball wizard"]
+    , [5, "Composer Jay of <i>Ashokan Farewell</i>"]
+    , [7, "Disney movie starring Auliʻi Cravalho"]
+    , [8, "See 1-across"]
+    , [9, "“___ takers?”"]
+    ]
+  , "Down":
+    [ [1, "See 1-across"]
+    , [2, "_____ Gay"]
+    , [3, "One more time"]
+    , [4, "Pack place"]
+    , [6, "Tubular"]
+    ]
+  }
+}

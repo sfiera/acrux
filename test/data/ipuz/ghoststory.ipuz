@@ -1,0 +1,37 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ ["#",                                         1,                                           2,                                           3,                                           "#"                                        ]
+  , [4,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 0,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 5                                          ]
+  , [6,                                           0,                                           0,                                           0,                                           0                                          ]
+  , [7,                                           0,                                           0,                                           0,                                           0                                          ]
+  , [8,                                           0,                                           0,                                           0,                                           0                                          ]
+  ]
+, "solution":
+  [ ["#", "A", "G", "E", "#"]
+  , ["A", "C", "H", "E", "D"]
+  , ["S", "T", "O", "R", "Y"]
+  , ["H", "A", "S", "I", "N"]
+  , ["E", "S", "T", "E", "E"]
+  ]
+, "clues":
+  { "Across":
+    [ [1, "Year count"]
+    , [4, "Was sore"]
+    , [6, "See 2-down"]
+    , [7, "_____ mind"]
+    , [8, "First name in skin care"]
+    ]
+  , "Down":
+    [ [1, "Portray"]
+    , [2, "With 6-across, spooky tale"]
+    , [3, "Spooky"]
+    , [4, "Tennis great"]
+    , [5, "Unit of force"]
+    ]
+  }
+}

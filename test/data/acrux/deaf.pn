@@ -1,0 +1,23 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	DEAF#
+	|	UNGAR
+	|	MOANA
+	|	BLIND
+	|	#ANY#
+
+clues:
+	DEAF:   "With ${DUMB&BLIND}, like The Who’s pinball wizard"
+	UNGAR:  "Composer Jay of *Ashokan Farewell*"
+	MOANA:  "Disney movie starring Auliʻi Cravalho"
+	BLIND:  "See $DEAF"
+	ANY:    "“___ takers?”"
+
+	DUMB:   "See $DEAF"
+	ENOLA:  "_____ Gay"
+	AGAIN:  "One more time"
+	FANNY:  "Pack place"
+	RAD:    "Tubular"

@@ -1,0 +1,25 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	INTRO
+	|	NOWIN
+	|	TWICE
+	|	EACH#
+	|	LYE##
+
+clues:
+	INTRO:  "First part"
+	NOWIN:  "“_____ theaters!”"
+	EACH:   "Apiece"
+	LYE:    "Alkaline liquid"
+
+	INTEL:  "Spy’s target"
+	NOWAY:  "“Nuh-uh.”"
+	RICH:   "Full of flavor"
+	ONE:    "Cardinal starter"
+
+	TWICE:
+		*	"Number of times $TWICE[1] occurs in this puzzle"
+		*	"Number of times $TWICE[0] occurs in this puzzle"

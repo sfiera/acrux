@@ -1,0 +1,19 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	GREAT
+	|	O#R#W
+	|	WHITE
+	|	N#C#A
+	|	SHARK
+
+clues:
+	GREAT:  "With ${WHITE&SHARK}, aquatic menace"
+	WHITE:  "See $GREAT"
+	SHARK:  "See $GREAT"
+
+	GOWNS:  "Graduation attire"
+	ERICA:  "Author Jong"
+	TWEAK:  "Fiddle with"

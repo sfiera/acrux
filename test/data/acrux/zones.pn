@@ -1,0 +1,23 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	ZONES
+	|	ANODE
+	|	PETIT
+	|	PASTA
+	|	ALOST
+
+clues:
+	ZONES:  "Areas"
+	ANODE:  "Electron collector"
+	PETIT:  "Klein"
+	PASTA:  "Carb-loader’s food"
+	ALOST:  "Fighting for _____ cause"
+
+	ZAPPA:  "Apostrophist"
+	ONEAL:  "Shaquille of the court"
+	NOTSO:  "Less"
+	EDITS:  "Pares (down)"
+	SETAT:  "Go to town on"

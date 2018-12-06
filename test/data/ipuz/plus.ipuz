@@ -1,0 +1,39 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ [1,                                           2,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 3,                                           4                                          ]
+  , [5,                                           0,                                           "#",                                         6,                                           0                                          ]
+  , [{"cell": 0, "style": {"shapebg": "circle"}}, "#",                                         "#",                                         "#",                                         {"cell": 0, "style": {"shapebg": "circle"}}]
+  , [7,                                           8,                                           "#",                                         9,                                           0                                          ]
+  , [10,                                          0,                                           {"cell": 0, "style": {"shapebg": "circle"}}, 0,                                           0                                          ]
+  ]
+, "solution":
+  [ ["S", "A", "N", "Y", "O"]
+  , ["E", "M", "#", "A", "B"]
+  , ["W", "#", "#", "#", "E"]
+  , ["E", "L", "#", "B", "Y"]
+  , ["D", "O", "S", "E", "S"]
+  ]
+, "clues":
+  { "Across":
+    [ [1, "Tokaido connection"]
+    , [5, "Unit of width"]
+    , [6, "One of a six-pack?"]
+    , [7, "Chicago transport option"]
+    , [9, "Attributed to"]
+    , [10, "They might be in CCs"]
+    ]
+  , "Down":
+    [ [1, "Put in stitches?"]
+    , [2, "“I think, therefore I __”"]
+    , [3, "“See __!”"]
+    , [4, "Hews to"]
+    , [8, "“Behold!”"]
+    , [9, "Hamlet dichotomy"]
+    ]
+  }
+}

@@ -59,7 +59,9 @@ def ax2ipuz(pod):
                 puzzle[-1].append(
                     collections.OrderedDict([
                         ("cell", cell.number or 0),
-                        ("style", {"shapebg": "circle"}),
+                        ("style", {
+                            "shapebg": "circle"
+                        }),
                     ]))
                 solution[-1].append(cell.text)
             else:
@@ -135,11 +137,12 @@ def aligned(grid):
     return result
 
 
-def main():
-    parser = argparse.ArgumentParser()
+def main(args=None):
+    args = args or sys.argv[:]
+    parser = argparse.ArgumentParser(prog=args.pop(0))
     parser.add_argument("input", metavar="IN.ax", nargs="?", type=argparse.FileType("r"))
     parser.add_argument("output", metavar="OUT.ipuz", nargs="?", type=argparse.FileType("w"))
-    opts = parser.parse_args()
+    opts = parser.parse_args(args)
 
     if opts.input is None:
         opts.input = sys.stdin

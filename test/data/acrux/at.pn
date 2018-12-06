@@ -1,0 +1,26 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	#STS#
+	|	EL@ED
+	|	R@T@A
+	|	RELAY
+	|	#DEC#
+
+subs:
+	"@":  ["AT", "@"]
+
+clues:
+	STS:      "Ave. crossers"
+	ELATED:   "Ecstatic"
+	RATTATA:  "Rodent Pokémon"
+	RELAY:    "Baton pass"
+	DEC:      "X-mas mo."
+
+	SLATED:  "Scheduled (to)"
+	TATTLE:  "Squeal"
+	SEATAC:  "Alaska Airlines hub"
+	ERR:     "Slip up"
+	DAY:     "Year and a ___"

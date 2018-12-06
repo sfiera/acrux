@@ -1,0 +1,36 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ [{"cell": 1, "style": {"shapebg": "circle"}}, 2,                                           3,                                           4,                                           {"cell": 0, "style": {"shapebg": "circle"}}]
+  , ["#",                                         5,                                           0,                                           0,                                           "#"                                        ]
+  , ["#",                                         "#",                                         {"cell": 0, "style": {"shapebg": "circle"}}, "#",                                         "#"                                        ]
+  , ["#",                                         6,                                           0,                                           7,                                           "#"                                        ]
+  , [{"cell": 8, "style": {"shapebg": "circle"}}, 0,                                           0,                                           0,                                           {"cell": 0, "style": {"shapebg": "circle"}}]
+  ]
+, "solution":
+  [ ["E", "S", "S", "A", "Y"]
+  , ["#", "R", "E", "D", "#"]
+  , ["#", "#", "M", "#", "#"]
+  , ["#", "M", "I", "A", "#"]
+  , ["N", "U", "T", "S", "O"]
+  ]
+, "clues":
+  { "Across":
+    [ [1, "Column"]
+    , [5, "Toreador’s color"]
+    , [6, "AWOL"]
+    , [8, "Crazy person"]
+    ]
+  , "Down":
+    [ [2, "Jr.’s dad"]
+    , [3, "“The hourglass has run out”, literally"]
+    , [4, "Google product"]
+    , [6, "Micro"]
+    , [7, "Good __ gold"]
+    ]
+  }
+}

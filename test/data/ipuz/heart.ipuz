@@ -1,0 +1,35 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ ["#", 1,   "#", 2,   "#"]
+  , [3,   0,   4,   0,   5  ]
+  , [6,   0,   0,   0,   0  ]
+  , ["#", 7,   0,   0,   "#"]
+  , ["#", "#", 0,   "#", "#"]
+  ]
+, "solution":
+  [ ["#",     "S",     "#",     "T",     "#"    ]
+  , ["HEART", "T",     "O",     "HEART", "S"    ]
+  , ["Y",     "A",     "H",     "O",     "O"    ]
+  , ["#",     "G",     "I",     "F",     "#"    ]
+  , ["#",     "#",     "O",     "#",     "#"    ]
+  ]
+, "clues":
+  { "Across":
+    [ [3, "Deep, meaningful conversations"]
+    , [6, "“Hurray!”"]
+    , [7, "Moving picture"]
+    ]
+  , "Down":
+    [ [1, "Hart"]
+    , [2, "<i>____ War</i>"]
+    , [3, "Robust"]
+    , [4, "Home to many presidents"]
+    , [5, "Husband or fiancée, briefly"]
+    ]
+  }
+}

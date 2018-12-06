@@ -1,0 +1,29 @@
+title:      ""
+author:     ""
+copyright:  ""
+
+grid:
+	|	H̄AWK#
+	|	AS̄HES
+	|	SCĀLA
+	|	HOLL̄Y
+	|	#TESS̄
+
+subs:
+	"S̄":  {text: "S", style: "circle"}
+	"L̄":  {text: "L", style: "circle"}
+	"Ā":  {text: "A", style: "circle"}
+	"H̄":  {text: "H", style: "circle"}
+
+clues:
+	HAWK:   "Accipitrine one"
+	ASHES:  "*Angela’s _____*"
+	SCALA:  "Java relative"
+	HOLLY:  "Christmas shrub"
+	TESS:   "One of the d’Urbervilles"
+
+	HASH:   "Shifted character"
+	ASCOT:  "Fancy necktie"
+	WHALE:  "Big one"
+	KELLS:  "*Book of _____*"
+	SAYS:   "Claims"

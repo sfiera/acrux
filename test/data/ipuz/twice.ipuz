@@ -1,0 +1,37 @@
+{ "version": "http://ipuz.org/v1"
+, "kind": ["http://ipuz.org/crossword#1"]
+, "title": ""
+, "author": ""
+, "copyright": ""
+, "dimensions": {"width": 5, "height": 5}
+, "puzzle":
+  [ [1,   2,   3,   4,   5  ]
+  , [6,   0,   0,   0,   0  ]
+  , [7,   0,   0,   0,   0  ]
+  , [8,   0,   0,   0,   "#"]
+  , [9,   0,   0,   "#", "#"]
+  ]
+, "solution":
+  [ ["I", "N", "T", "R", "O"]
+  , ["N", "O", "W", "I", "N"]
+  , ["T", "W", "I", "C", "E"]
+  , ["E", "A", "C", "H", "#"]
+  , ["L", "Y", "E", "#", "#"]
+  ]
+, "clues":
+  { "Across":
+    [ [1, "First part"]
+    , [6, "“_____ theaters!”"]
+    , [7, "Number of times 3-down occurs in this puzzle"]
+    , [8, "Apiece"]
+    , [9, "Alkaline liquid"]
+    ]
+  , "Down":
+    [ [1, "Spy’s target"]
+    , [2, "“Nuh-uh.”"]
+    , [3, "Number of times 7-across occurs in this puzzle"]
+    , [4, "Full of flavor"]
+    , [5, "Cardinal starter"]
+    ]
+  }
+}
