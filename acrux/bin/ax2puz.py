@@ -71,7 +71,7 @@ def fill_char(cell):
 
 
 def cell_value(cell):
-    if cell.block:
+    if cell.block or cell.empty:
         return "."
     elif cell.options:
         return cell.options[0]
