@@ -62,6 +62,16 @@ _SIMPLE = {
     "→": "-->",
     "Œ": "OE",
     "œ": "oe",
+    "₀": "0",
+    "₁": "1",
+    "₂": "2",
+    "₃": "3",
+    "₄": "4",
+    "₅": "5",
+    "₆": "6",
+    "₇": "7",
+    "₈": "8",
+    "₉": "9",
 }
 
 
@@ -138,7 +148,7 @@ def _replace_accented(m):
 
 _SUBS = [
     (re.compile(r"–(\d)"), _replace_negative),
-    (re.compile(r"[“”ʺ‘’ʹʻʼ–—…№←⇐⇒→Œœ]"), _replace_simple),
+    (re.compile(r"[“”ʺ‘’ʹʻʼ–—…№←⇐⇒→Œœ₀₁₂₃₄₅₆₇₈₉]"), _replace_simple),
     (re.compile(r"[\U0001F3FB-\U0001F3FF]"), lambda m: ""),  # emoji skin color
     (re.compile(r"[\u270a\U0001F300-\U0001F6FF\U0001F900-\U0001F9FF]"), _replace_emoji),
     (re.compile(r"(^)?([⌘⇧⌥⌃])(\S)?"), _replace_modifier_key),
