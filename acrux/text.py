@@ -125,8 +125,15 @@ def _replace_fraction(m):
     return s
 
 
+_ACCENT_MAP = {
+    "Ł": "L",
+    "ł": "l",
+}
+
+
 def _replace_accented(m):
     s = unicodedata.normalize("NFKD", m.group(0))
+    s = "".join(_ACCENT_MAP.get(ch, ch) for ch in s)
     start = 0
     result = []
     for end in range(len(s) + 1):
